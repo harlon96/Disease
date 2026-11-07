@@ -1,0 +1,82 @@
+# This project was created in jupyter notebook. Place code in its own cell.
+
+#This code imports the date and time
+from datetime import date
+now = date.today()
+now
+
+#This code retreives a jpeg file from my chromebook
+from IPython import display
+display.Image('/home/harlohutch77/python/python_master/rash.jpeg',height=400, width=800)
+
+#This code imports libraries so this project is possible
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+#This is a csv that is being made into a dataframe
+df =pd.read_csv('/home/harlohutch77/python/python_master/d_training.csv')
+df.head()
+
+# other examples of removing columns
+# Drop column 'B'
+#df = df.drop('B', axis=1)
+
+# Drop columns multiple column
+#df = df.drop(['B', 'C'], axis=1)
+
+#del df['column_name'] deletes column from dataframe
+del df['Unnamed: 133']
+
+import seaborn as sns
+
+
+from sklearn.model_selection import train_test_split
+
+df_pred = df.predict(X_test)
+
+from sklearn.metrics import classification_report, confusion_matrix
+
+Slide Type
+
+#Confusion Matrix
+print(confusion_matrix(y_test,df_pred))
+​
+print(classification_report(y_test,df_pred))
+
+df =pd.read_csv('/home/harlohutch77/python/python_master/d_training.csv')
+df.head()
+
+#I am focusing on the epidermis issues to see if there is some kind of commonality
+
+#the amount of patients with this issue
+df['nodal_skin_eruptions'].sum()
+
+#this is how many patients that had this issue
+df['small_dents_in_nails'].sum()
+
+#this is for the full count of patients accounted for
+df['small_dents_in_nails'].count()
+
+#this is the amount of patients that have a skin rash
+df['skin_rash'].sum()
+
+#descrription of 
+df['skin_rash'].describe()
+
+#description and explanation of prognosis
+df['prognosis'].describe()
+
+#114 patients have Psoriasis and skin_rash
+df[df['prognosis']=='Psoriasis']['skin_rash'].sum()
+
+df[df['prognosis']=='impetigo']['skin_rash'].sum()
+
+#this is to cross reference skin issues with fungal infection
+df[df['prognosis']=='Fungal infection'][['skin_rash','itching','nodal_skin_eruptions']].sum()
+
+# 4920 prognosis's in this dataset
+# Is there a correlation between certain epidermis issues
+# What other factors are at play
+
