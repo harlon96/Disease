@@ -1,4 +1,4 @@
-# This project was created in jupyter notebook. Place code in its own cell.
+# This project was created in jupyter notebook. Place code in its own cell. Unfortunately Cufflinks is predicated..
 
 #This code imports the date and time
 from datetime import date
